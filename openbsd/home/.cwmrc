@@ -1,0 +1,83 @@
+# gap 12 0 0 0
+borderwidth 3
+snapdist 5
+
+fontname 				"Go Mono:size=9"
+color activeborder		"#546e7a"
+color inactiveborder 	"#ececec"
+
+color menubg 			"#ececec"
+color menufg 			"#546e7a"
+color font 				"#444444"
+color selfont 			"#ececec"
+
+command term 			"9term -s"
+
+command "  9trm  "	 	"9term -s"
+command "  rxvt  " 		urxvtc
+command "  acme  " 		/home/jamppa/.bin/p9p/acme-start.sh
+command "   sam  "		/home/jamppa/.bin/p9p/sam-start.sh
+command "  chrm  "		chrome
+
+# command xlock "xscreensaver-command --lock"
+
+sticky yes
+
+unbind-key all
+
+bind-key 4-Return terminal
+bind-key 4-p "dmenu_run -fn 'Go Mono:size=8'"
+
+bind-key 4-h window-move-left-big
+bind-key 4-j window-move-down-big
+bind-key 4-k window-move-up-big
+bind-key 4-l window-move-right-big
+
+bind-key S4-h window-resize-left-big
+bind-key S4-j window-resize-down-big
+bind-key S4-k window-resize-up-big
+bind-key S4-l window-resize-right-big
+
+bind-key 4-x window-maximize
+bind-key 4-z window-vmaximize
+bind-key S4-x window-htile
+bind-key S4-z window-vtile
+
+bind-key 4-f window-group
+bind-key 4-1 group-toggle-1
+bind-key 4-2 group-toggle-2
+bind-key 4-3 group-toggle-3
+bind-key 4-4 group-toggle-4
+bind-key 4-5 group-only-5
+bind-key 4-6 group-only-6
+bind-key 4-7 group-only-7
+bind-key 4-8 group-only-8
+bind-key 4-9 group-only-9
+
+bind-key S4-1 window-movetogroup-1
+bind-key S4-2 window-movetogroup-2
+bind-key S4-3 window-movetogroup-3
+bind-key S4-4 window-movetogroup-4
+bind-key S4-5 window-movetogroup-5
+bind-key S4-6 window-movetogroup-6
+bind-key S4-7 window-movetogroup-7
+bind-key S4-8 window-movetogroup-8
+bind-key S4-9 window-movetogroup-9
+
+bind-key 4-Tab window-cycle
+bind-key S4-Tab window-rcycle
+
+bind-key 4-c window-hide
+bind-key S4-c window-delete
+
+bind-mouse "1" menu-window-hidden
+bind-mouse 4-1 window-move
+bind-mouse 4-2 window-resize
+bind-mouse 4-3 window-lower
+unbind-mouse M-1
+unbind-mouse M-2
+unbind-mouse M-3
+
+bind-key 4-s menu-window
+bind-key 4-r restart
+bind-key S4-q quit
