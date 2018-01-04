@@ -1,0 +1,9 @@
+#!/bin/sh
+# to be used with suckless ii (irc  client)
+# usage: ii-client #channel
+[ -d "$1" ] || exit 1
+tail -n 80 -f "$1/out"
+while IFS='' read -r line
+do
+	printf '%s\n' "$line" > "$1/in"
+done
