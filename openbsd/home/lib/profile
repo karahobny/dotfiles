@@ -1,0 +1,20 @@
+plan9=/usr/local/plan9
+font='/mnt/font/Go Mono/9a/font'
+#prompt='>> '
+prompt='; ''% '
+
+fn cd {
+	builtin cd $1 &&
+	awd
+}
+fn ls {
+	builtin ls -F $*
+}
+fn ll {
+	builtin ls -laF $*
+}
+fn df {
+	builtin df -h $*
+}
+
+. $plan9/lib/acme.rc
