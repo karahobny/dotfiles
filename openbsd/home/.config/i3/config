@@ -5,9 +5,9 @@ set $web 3:<span fallback='true'></span>
 set $chat 4:<span fallback='true'></span>
 set $mdia 5:<span fallback='true'></span>
 set $misc 6:<span fallback='true'></span>
-
 # binding modes
-set $resize 
+set $resize 
+
 
 #font -*-yuki-*-*-*-*-10-*-*-*-*-*-*-*
 font -*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*
