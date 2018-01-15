@@ -2,7 +2,7 @@ super + Return
 	9term -s -f '/usr/local/plan9/font/mntcarlo/mntcarlo.font'
 
 super + @space
-	dmenu_run -fn 'ProFontWindows:size=9:antialias=false'
+	dmenu_run -fn 'ProFontWindows:size=9:antialias=false' -nf '#444444' -nb '#ececec' -sf '#ececec' -sb '#546e7a'
 
 super + Escape
 	pkill -USR1 -x sxhkd
