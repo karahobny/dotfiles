@@ -1,0 +1,167 @@
+# workspaces
+set $term 1:<span fallback='true'></span>
+set $code 2:<span fallback='true'></span>
+set $web 3:<span fallback='true'></span>
+set $chat 4:<span fallback='true'></span>
+set $mdia 5:<span fallback='true'></span>
+set $misc 6:<span fallback='true'></span>
+
+# binding modes
+set $resize 
+
+#font -*-yuki-*-*-*-*-10-*-*-*-*-*-*-*
+font -*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*
+
+set $mod Mod4
+floating_modifier $mod
+
+#bindsym $mod+Return exec /usr/X11R6/bin/xterm
+#bindsym $mod+p exec /usr/local/bin/dmenu_run -fn 'yuki:size=7:antialias=false:hinting=full'
+bindsym $mod+p exec /usr/local/bin/dmenu_run -fn 'lime.se:size=8:antialias=false:hinting=full'
+
+bindsym $mod+Return exec /usr/local/bin/urxvtc	
+#bindsym $mod+p exec /home/jamppa/bin/dmenu_custom
+
+bindsym $mod+Shift+c kill
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+bindsym $mod+d focus child
+
+bindsym $mod+1 workspace number $term
+bindsym $mod+2 workspace number $code
+bindsym $mod+3 workspace number $web
+bindsym $mod+4 workspace number $chat
+bindsym $mod+5 workspace number $mdia
+bindsym $mod+6 workspace number $misc
+#bindsym $mod+7 workspace 7
+#bindsym $mod+8 workspace 8
+#bindsym $mod+9 workspace 9
+#bindsym $mod+0 workspace 10
+
+bindsym $mod+Shift+1 move container to workspace number $term
+bindsym $mod+Shift+2 move container to workspace number $code
+bindsym $mod+Shift+3 move container to workspace number $web
+bindsym $mod+Shift+4 move container to workspace number $chat
+bindsym $mod+Shift+5 move container to workspace number $mdia
+bindsym $mod+Shift+6 move container to workspace number $misc
+#bindsym $mod+Shift+7 move container to workspace 7
+#bindsym $mod+Shift+8 move container to workspace 8
+#bindsym $mod+Shift+9 move container to workspace 9
+#bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+q restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+assign [class="acme"] $code
+assign [class="Chromium-browser"] $web
+assign [class="Firefox"] $web
+assign [class="mpv"] $mdia
+assign [class="Sxiv"] $mdia
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+bindsym $mod+r mode "$resize"
+
+# resize window (you can also use the mouse for that)
+mode "$resize" {
+	bindsym $mod+j resize shrink width 1 px or 1 ppt
+	bindsym $mod+k resize grow height 1 px or 1 ppt
+	bindsym $mod+l resize shrink height 1 px or 1 ppt
+	bindsym $mod+odiaeresis resize grow width 1 px or 1 ppt
+
+	bindsym Shift+j resize shrink width 5 px or 5 ppt
+	bindsym Shift+k resize grow height 5 px or 5 ppt
+	bindsym Shift+l resize shrink height 5 px or 5 ppt
+	bindsym Shift+odiaeresis resize grow width 5 px or 5 ppt
+
+	bindsym j resize shrink width 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym l resize shrink height 10 px or 10 ppt
+	bindsym odiaeresis resize grow width 10 px or 10 ppt
+
+	bindsym $mod+Left resize shrink width 1 px or 1 ppt
+	bindsym $mod+Down resize grow height 1 px or 1 ppt
+	bindsym $mod+Up resize shrink height 1 px or 1 ppt
+	bindsym $mod+Right resize grow width 1 px or 1 ppt
+
+	bindsym Shift+Left resize shrink width 5 px or 5 ppt
+	bindsym Shift+Down resize grow height 5 px or 5 ppt
+	bindsym Shift+Up resize shrink height 5 px or 5 ppt
+	bindsym Shift+Right resize grow width 5 px or 5 ppt
+
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym $mod+r mode "default"
+}
+
+new_window 1pixel
+client.focused          #888888 #333333 #DDDDDD #888888   #888888
+client.focused_inactive #333333 #3F3F3F #DDDDDD #333333   #333333
+client.unfocused        #333333 #222222 #666666 #292D2E   #222222
+client.urgent           #CCCCCC #222222 #DDDDDD #CCCCCC   #CCCCCC
+client.placeholder      #333333 #151515 #888888 #333333   #333333
+
+client.background       #151515
+
+bar {
+	status_command i3status
+	position top
+	font pango: lime.se, Siji 8
+	strip_workspace_numbers yes
+
+	colors {
+		background #101010
+		statusline #DDDDDD
+#		separator  #555555
+		separator  #151515
+
+#		focused_workspace  #555555 #333333 #DDDDDD
+#		active_workspace   #555555 #222222 #DDDDDD
+#		inactive_workspace #555555 #222222 #666666
+#		urgent_workspace   #555555 #BBBBBB #222222
+#		binding_mode       #555555 #BBBBBB #222222
+		focused_workspace  #101010 #101010 #CCCCCC
+		active_workspace   #101010 #101010 #999999
+		inactive_workspace #101010 #101010 #7F7F7F
+		urgent_workspace   #101010 #101010 #FFFFFF
+		binding_mode       #101010 #101010 #5a5a5a
+	}
+}

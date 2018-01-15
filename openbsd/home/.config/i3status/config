@@ -1,0 +1,67 @@
+general {
+	output_format = "i3bar"
+	colors = true
+	interval = 5
+	markup = "pango"
+
+	separator = false
+
+	color_good = "#a0cf5d"
+	color_bad = "#e84f4f"
+	color_degraded = "#aaaaaa"
+	color_separator = "#555555"
+}
+
+order += "wireless iwn0"
+order += "ethernet enc0"
+#order += "disk /home"
+#order += "load"
+#order += "cpu_temperature 0"
+order += "battery 0"
+order += "tztime local"
+order += "tztime date"
+
+wireless iwn0 {
+	format_up = "<span foreground='#5a5a5a'><span fallback='true'></span> %essid <span fallback='true'></span> %ip</span>"
+	format_down = ""
+}
+
+ethernet enc0 {
+	format_up = "E: %ip (%speed)"
+	format_down = ""
+}
+battery 0 {
+	format = "<span foreground='#7f7f7f'><span fallback='true'></span>%status %percentage</span>"
+	format_down = ""
+#	status_chr = "⚡ charging"
+	status_chr = "<span fallback='true'></span>"
+	status_bat = "<span fallback='true'></span>"
+	status_unk = "UNK"
+	status_full = "<span fallback='true'></span>"
+	path = "/sys/class/power_supply/BAT%d/uevent"
+	low_threshold = 20
+}
+
+load {
+	format = "<span fallback='true'></span> %5min"
+}
+
+#cpu_temperature 0 {
+#	format = "<span fallback='true'></span> %degrees"
+#	path = "/sys/devices/platform/coretemp.0/temp1_input"
+#}
+
+disk "/home" {
+	format = "<span fallback='true'></span> %avail available at <span fallback='true'></span>"
+	prefix_type = g
+}
+
+tztime local {
+	format = "<span foreground='#999999'><span fallback='true'></span> %time</span>"
+	format_time = "%H:%M"
+}
+
+tztime date {
+	format ="<span foreground='#bbbbbb'><span fallback='true'></span> %time</span> "
+	format_time = "%Y-%m-%d"
+}
