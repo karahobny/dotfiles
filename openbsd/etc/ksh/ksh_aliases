@@ -1,0 +1,42 @@
+# vim: syntax=sh
+# ksh aliases to make a life just a tad bit more bearable
+
+# handy dandy system related
+alias ls="colorls -GF"
+alias l="ls"
+alias ll="ls -lhA"
+alias df="df -h"
+alias c="clear"
+alias reload=". $HOME/.kshrc"
+
+alias ..="cd .."
+alias ...="cd ..; cd ..;"
+
+# package management
+alias pkga="doas pkg_add"
+alias pkgu="doas pkg_add -u"
+alias pkgd="doas pkg_delete"
+alias pkgi="doas pkg_info"
+alias pkgl="pkg_locate"
+
+alias daim="doas make install"
+
+# colorized logs for easier perusal
+alias dlog="colortail -k  /usr/local/share/examples/colortail/conf.daemon -f /var/log/daemon"
+alias mlog="colortail -k  /usr/local/share/examples/colortail/conf.messages -f /var/log/messages"
+alias slog="colortail -k  /usr/local/share/examples/colortail/conf.secure -f /var/log/secure"
+alias alog="colortail -k  /usr/local/share/examples/colortail/conf.authlog -f /var/log/authlog"
+
+# misc
+alias vi="nvim"
+alias vim="nvim"
+alias xclip="xclip -selection clipboard"
+alias xr="xrdb -merge ~/.Xresources"
+
+# git
+alias gc="git clone"
+alias ga="git add"
+alias grm="git rm"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gpom="git push origin master"

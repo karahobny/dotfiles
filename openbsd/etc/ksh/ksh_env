@@ -1,0 +1,11 @@
+# vim: syntax=sh
+LANG="en_US.UTF-8"
+LC_TYPE="en_US.UTF-8"
+LC_ALL=""
+
+export LANG LC_TYPE LC_ALL
+
+EDITOR="nvim"
+VISUAL="nvim"
+
+export EDITOR VISUAL

@@ -1,0 +1,61 @@
+# color variables for exporting
+
+CRST="$(tput sgr0)"
+BOLD="$(tput bold)"
+
+case $TERM in
+	rxvt-unicode|xterm|uxterm)
+		_blk="$(tput setaf 0)"
+		_red="$(tput setaf 1)"
+		_grn="$(tput setaf 2)"
+		_yel="$(tput setaf 3)"
+		_blu="$(tput setaf 4)"
+		_mag="$(tput setaf 5)"
+		_cya="$(tput setaf 6)"
+		_whi="$(tput setaf 7)"
+		_BLK="${BOLD}${_blk}"
+		_RED="${BOLD}${_red}"
+		_GRN="${BOLD}${_grn}"
+		_YEL="${BOLD}${_yel}"
+		_BLU="${BOLD}${_blu}"
+		_MAG="${BOLD}${_mag}"
+		_CYA="${BOLD}${_cya}"
+		_WHI="${BOLD}${_whi}"
+		;;
+	*-256color)
+		_blk="$(tput setaf 0 0 0)"
+		_red="$(tput setaf 0 0 1)"
+		_grn="$(tput setaf 0 0 2)"
+		_yel="$(tput setaf 0 0 3)"
+		_blu="$(tput setaf 0 0 4)"
+		_mag="$(tput setaf 0 0 5)"
+		_cya="$(tput setaf 0 0 6)"
+		_whi="$(tput setaf 0 0 7)"
+		_BLK="${BOLD}${_blk}"
+		_RED="${BOLD}${_red}"
+		_GRN="${BOLD}${_grn}"
+		_YEL="${BOLD}${_yel}"
+		_BLU="${BOLD}${_blu}"
+		_MAG="${BOLD}${_mag}"
+		_CYA="${BOLD}${_cya}"
+		_WHI="${BOLD}${_whi}"
+		;;
+	*)
+		_blk="\e[0;30m"
+		_red="\e[0;31m"
+		_grn="\e[0;32m"
+		_yel="\e[0;33m"
+		_blu="\e[0;34m"
+		_mag="\e[0;35m"
+		_cya="\e[0;36m"
+		_whi="\e[0;37m"
+		_BLK="\e[1;30m"
+		_RED="\e[1;31m"
+		_GRN="\e[1;32m"
+		_YEL="\e[1;33m"
+		_BLU="\e[1;34m"
+		_MAG="\e[1;35m"
+		_CYA="\e[1;36m"
+		_WHI="\e[1;37m"
+		;;
+esac

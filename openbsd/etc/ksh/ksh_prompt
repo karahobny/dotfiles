@@ -1,0 +1,15 @@
+UID=`id -u`
+case $UID in
+	0)
+		set -A ps1c ${_yel} ${_red} ${_RED}
+	;;
+	1000)
+		set -A ps1c ${_blu} ${_cya} ${_CYA}
+	;;
+	*)
+		set -A ps1c ${_GRN} ${_grn} $_{yel}
+	;;
+esac
+x=$(print \\001)
+PS1="\[${ps1c[0]}\]_\[${CRST}${ps1c[1]}\]__\[${CRST}${ps1c[2]}\]_\[${CRST}\] "
+PS2="\[${ps1c[2]}\]>\[${CRST}\] "
