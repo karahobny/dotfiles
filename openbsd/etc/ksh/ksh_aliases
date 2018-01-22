@@ -17,6 +17,7 @@ alias pkga="doas pkg_add"
 alias pkgu="doas pkg_add -u"
 alias pkgd="doas pkg_delete"
 alias pkgi="doas pkg_info"
+alias pkgq="doas pkg_info -Q"
 alias pkgl="pkg_locate"
 
 alias daim="doas make install"
@@ -32,6 +33,8 @@ alias vi="nvim"
 alias vim="nvim"
 alias xclip="xclip -selection clipboard"
 alias xr="xrdb -merge ~/.Xresources"
+
+alias dash="dash -l"
 
 # git
 alias gc="git clone"

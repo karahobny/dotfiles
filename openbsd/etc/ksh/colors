@@ -1,3 +1,4 @@
+# vim: set syntax=sh
 # color variables for exporting
 
 CRST="$(tput sgr0)"
@@ -13,24 +14,6 @@ case $TERM in
 		_mag="$(tput setaf 5)"
 		_cya="$(tput setaf 6)"
 		_whi="$(tput setaf 7)"
-		_BLK="${BOLD}${_blk}"
-		_RED="${BOLD}${_red}"
-		_GRN="${BOLD}${_grn}"
-		_YEL="${BOLD}${_yel}"
-		_BLU="${BOLD}${_blu}"
-		_MAG="${BOLD}${_mag}"
-		_CYA="${BOLD}${_cya}"
-		_WHI="${BOLD}${_whi}"
-		;;
-	*-256color)
-		_blk="$(tput setaf 0 0 0)"
-		_red="$(tput setaf 0 0 1)"
-		_grn="$(tput setaf 0 0 2)"
-		_yel="$(tput setaf 0 0 3)"
-		_blu="$(tput setaf 0 0 4)"
-		_mag="$(tput setaf 0 0 5)"
-		_cya="$(tput setaf 0 0 6)"
-		_whi="$(tput setaf 0 0 7)"
 		_BLK="${BOLD}${_blk}"
 		_RED="${BOLD}${_red}"
 		_GRN="${BOLD}${_grn}"

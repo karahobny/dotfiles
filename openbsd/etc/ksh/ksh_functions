@@ -1,0 +1,4 @@
+cd() {
+	command cd "$@";
+	echo -ne "\033]0;${PWD}\007";
+}
