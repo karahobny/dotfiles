@@ -1,0 +1,7 @@
+#!/bin/sh
+. cwm_panel_var
+FONT="-*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*"
+ICON="-*-siji-*-*-*-*-10-*-*-*-*-*-*-*"
+ICON2="-*-tewi-medium-*-*-*-11-*-*-*-*-*-*-*"
+cwm_panel_bar | lemonbar -F "#FFFFFF" -B "#101010" -d \
+                         -f "$lfont" -f "$lfont2" -f "$lfont3" "$@"

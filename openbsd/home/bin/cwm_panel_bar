@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+#
+# z3bra - (c) wtfpl 2014
+# Fetch infos on your computer, and print them to stdout every second.
+
+. cwm_panel_var
+
+calendar() {
+	echo " `date '+%a %d/%m/%Y'`"
+}
+
+clock() {
+    echo " `date '+%H:%M'`"
+}
+battStat() {
+	battery=`apm -l`
+	battcharge=`apm -a`
+	if [ $battcharge -eq 1 ]; then
+		echo " ${battery}%"
+	elif [ $battery -eq 100 ]; then
+		echo " ${battery}%"
+	elif [ $battery -le 25 ]; then
+		echo " ${battery}%"
+	else
+		echo " ${battery}%"
+	fi
+}
+curWinTitle() {
+	title=`xtitle $(pfw)`
+		[ -z "$title" ] && echo "" \
+		|| echo "${title} ${seprtrdefc}${lseparator}"
+}
+nowPlaying() {
+	if [ "$(mpc current)" ]; then
+		echo "$rseparator `mpc current | cut -c 1-50`"
+	else
+		echo ""
+	fi  
+}
+cpuTemp() {
+	_cpuTemp=`sysctl -n hw.sensors.cpu0.temp0 | awk '{ print $1 }'`
+	echo " $_cpuTemp"
+}
+groupStat() {
+	cur=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
+#	tot=`xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}'`
+	tot=8
+
+	for wid in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`; do
+		if grep -q 'IsViewable' <<< $(xwininfo -id $wid); then
+			grp=`xprop -id $wid _NET_WM_DESKTOP | awk '{print $3}'`
+			shown="$shown $grp"
+		fi
+	done
+
+	for g in `seq 1 $((tot))`; do
+		if test $g -eq $cur; then
+			line="${line}${grpcur}"
+		elif grep -q $g <<< "$shown"; then
+			line="${line}${grpshown}"
+		else
+			line="${line}${grpavail}"
+		fi
+	done
+
+	echo $line
+}
+
+while :; do
+ 	buf=""
+	buf="${buf}%{l}" #lemonbar align left
+	buf="${buf}%{F#101010}$lseparator"
+	buf="${buf}$(groupStat) ${seprtrdefc}$lseparator"
+	buf="${buf} $cwintitle$(curWinTitle)"
+#	buf="${buf}%{c}" #lemonbar align center
+	buf="${buf}%{r}" # lemonbar align right
+	buf="${buf} %{F#4f4f4f}$(nowPlaying)"
+	buf="${buf} %{F#666666}$rseparator$(cpuTemp)$degrees"
+	buf="${buf} %{F#7f7f7f}$rseparator$(battStat)"
+	buf="${buf} %{F#999999}$rseparator$(clock)"
+	buf="${buf} %{F#bbbbbb}$rseparator$(calendar)"
+	buf="${buf}%{F#101010}$rseparator"
+
+	echo $buf
+	sleep 1
+done
