@@ -1,17 +1,19 @@
 call plug#begin('~/.config/nvim/plugged')
-	" Plugins will go here in the middle.
 	Plug 'godlygeek/tabular'
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'scrooloose/nerdtree'
 	Plug 'tpope/vim-fugitive'
+	Plug 'vim-syntastic/syntastic'
 	Plug 'raimondi/delimitmate'
 	Plug 'PotatoesMaster/i3-vim-syntax'
 call plug#end()
+
 set encoding=utf-8
 set fileencoding=utf-8
+set clipboard^=unnamed,unnamedplus
 
 set modeline
-set modelines=5
+set modelines=2
 
 set ttimeout
 set ttimeoutlen=100
@@ -22,6 +24,7 @@ set gdefault
 filetype indent on
 set autoindent
 set smartindent
+
 set showmatch
 set number
 set formatoptions+=o
@@ -32,7 +35,8 @@ set nojoinspaces
 set cursorline
 set ruler
 
-set foldmethod=indent
+set foldmethod=syntax
+set foldlevelstart=99
 
 set splitbelow
 set splitright
@@ -45,12 +49,22 @@ if !&sidescrolloff
 endif
 
 set nostartofline
-set listchars=tab:¯¯,trail:¬,extends:>,precedes:<,nbsp:¬
+set listchars=tab:¯¯,trail:-,extends:>,precedes:<,nbsp:x
 set list
 set autochdir
 set isfname-=:
 set isfname-==
 set isfname-=+
+
+set statusline=\ \ \ \ %F\ %y\ %m
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
@@ -70,8 +84,8 @@ color term
 "match ExtraWhitespace /\s\+$\|\t/
 highlight Comment ctermfg=darkgray
 highlight CursorLineNr ctermfg=gray
-set fillchars+=vert:\ 
 set diffopt+=iwhite
+set fillchars+=vert:º,stl:Í,stlnc:Í
 
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -82,8 +96,9 @@ function! NumberToggle()
 	endif
 endfunc
 
-command W w !doas tee % > /dev/null
-"command Tab Tabularize
+command! W w !doas tee % > /dev/null
+command! Tab Tabularize
+command! S source ~/.config/nvim/init.vim
 
 let mapleader="\<SPACE>"
 
@@ -91,6 +106,8 @@ if maparg('<C-L>', 'n') ==# ''
 	nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
+inoremap kj <ESC>
+inoremap jk <ESC>
 nnoremap ; :
 nnoremap <CR> G
 nnoremap <BS> gg
@@ -110,10 +127,29 @@ vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
 
 nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprevious<CR>
 
 nmap <Leader>s :%s//g<Left><Left>
+
+" split navigation
+inoremap <A-h>           <C-\><C-N><C-w>h
+inoremap <A-j>           <C-\><C-N><C-w>j
+inoremap <A-k>           <C-\><C-N><C-w>k
+inoremap <A-l>           <C-\><C-N><C-w>l
+nnoremap <A-h>           <C-w>h
+nnoremap <A-j>           <C-w>j
+nnoremap <A-k>           <C-w>k
+nnoremap <A-l>           <C-w>l
+
+" terminal
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+au TermOpen * setlocal nonumber
+tnoremap <Esc> <C-\><C-n>
+tnoremap jk    <C-\><C-n>
+tnoremap kj    <C-\><C-n> 
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
