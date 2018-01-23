@@ -1,14 +1,18 @@
-#export font="/mnt/font/Go Mono/9a/font"
-export font="/usr/local/plan9/font/mntcarlo/mntcarlo.font"
-
+export font=/mnt/font/yuki/7/font
 export PLAN9=/usr/local/plan9
-export SHELL=$PLAN9/bin/rc
-export PATH=$PATH:$HOME/bin/p9p
+export PATH=$PATH:$HOME/.bin/p9p:$HOME/bin/wmutils
 
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape' &
+xrdb -merge $HOME/.Xresources &
 xset -b &
-$HOME/.fehbg &
-xsetroot -cursor_name left_ptr
-#rio -virtuals 6
-#cwm
-exec bspwm
+xset +fp /home/jamppa/.fonts
+xset +fp /usr/local/share/fonts/artwiz-aleczapka/
+xset fp rehash &
+
+setxkbmap -option caps:escape &
+xmodmap -e 'keysym Menu = Super_L' &
+
+xsetroot -cursor_name left_ptr &
+hsetroot -fill $HOME/.wall.jpeg -gamma 0.6 &
+
+$HOME/bin/cwm_panel &
+exec cwm

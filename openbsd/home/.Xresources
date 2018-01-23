@@ -1,0 +1,49 @@
+!! Xft / font stuff
+Xft.rgba:       rgb
+Xft.hintstyle:  hintslight
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.hinting:    true
+
+!! colors
+URxvt.cursorColor:  #d7d0c7
+URxvt.foreground:   #d7d0c7
+URxvt.background:   #151515
+st.foreground:      #d7d0c7
+st.background:      #151515
+
+*.color0:   #101010
+*.color8:   #404040
+*.color1:   #e84f4f
+*.color9:   #d23d3d
+*.color2:   #b8d68c
+*.color10:  #a0cf5d
+*.color3:   #e1aa5d
+*.color11:  #f39d21
+*.color4:   #7dc1cf
+*.color12:  #4e9fb1
+*.color5:   #9b64fb
+*.color13:  #8542ff
+*.color6:   #6d878d
+*.color14:  #42717b
+*.color7:   #dddddd
+*.color15:  #dddddd
+
+!! urxvt specific settings
+URxvt.termName:         rxvt-unicode
+URxvt.geometry:         90x24
+URxvt.loginShell:       true
+URxvt.internalBorder:   10
+URxvt.lineSpace:        0
+URxvt*saveLines:        12000
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+
+URxvt*font: -*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*, xft:Go\ Mono:antialias=true:hinting=slight
+URxvt*boldFont: -*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*,, xft:Go\ Mono:antialias=true:hinting=slight
+
+!! xst/st specific settings
+st.termname:    st-256color
+st.font:        lime.se:size=8:antialias=false:hinting=full
+st.bellvolume:  0
+st.borderpx:    10px
