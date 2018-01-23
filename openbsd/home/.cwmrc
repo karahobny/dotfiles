@@ -1,32 +1,35 @@
-# gap 12 0 0 0
-borderwidth 3
+gap 15 0 0 0
+borderwidth 2
 snapdist 5
 
-fontname 				"Go Mono:size=9"
-color activeborder		"#546e7a"
-color inactiveborder 	"#ececec"
+fontname "-*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*"
+#fontname "yuki:size=7:antialias=false:hinting=full"
+color activeborder "#6f6f6f"
+color inactiveborder "#3f3f3f"
 
-color menubg 			"#ececec"
-color menufg 			"#546e7a"
-color font 				"#444444"
-color selfont 			"#ececec"
+color menubg "#151515"
+color menufg "#d7d0c7"
+color font "#d7d0c7"
+color selfont "#151515"
 
-command term 			"9term -s"
+command term "st -g 80x17"
 
-command "  9trm  "	 	"9term -s"
-command "  rxvt  " 		urxvtc
-command "  acme  " 		/home/jamppa/.bin/p9p/acme-start.sh
-command "   sam  "		/home/jamppa/.bin/p9p/sam-start.sh
-command "  chrm  "		chrome
+command "          st" "st -g 80x17"
+command "         vim" "st -c vim -T vim -g 94x44 -e nvim"
+command "        tmux" "st -g 85x31 -T tmux -e tmux atach-session"
+command "        chrm" chrome
+command "         tor" tor-browser
+command "        gimp" gimp
+command "        offc" libreoffice
 
-# command xlock "xscreensaver-command --lock"
+# command "        acme" /home/jamppa/.bin/p9p/acme-start.sh
 
 sticky yes
 
 unbind-key all
 
 bind-key 4-Return terminal
-bind-key 4-p "dmenu_run -fn 'Go Mono:size=8'"
+bind-key 4-p "/home/jamppa/bin/dmenu_custom"
 
 bind-key 4-h window-move-left-big
 bind-key 4-j window-move-down-big
@@ -40,19 +43,18 @@ bind-key S4-l window-resize-right-big
 
 bind-key 4-x window-maximize
 bind-key 4-z window-vmaximize
-bind-key S4-x window-htile
-bind-key S4-z window-vtile
+bind-key S4-t window-htile
+bind-key 4-t window-vtile
 
 bind-key 4-f window-group
 bind-key 4-1 group-toggle-1
 bind-key 4-2 group-toggle-2
 bind-key 4-3 group-toggle-3
 bind-key 4-4 group-toggle-4
-bind-key 4-5 group-only-5
-bind-key 4-6 group-only-6
-bind-key 4-7 group-only-7
-bind-key 4-8 group-only-8
-bind-key 4-9 group-only-9
+bind-key 4-5 group-toggle-5
+bind-key 4-6 group-toggle-6
+bind-key 4-7 group-toggle-7
+bind-key 4-8 group-toggle-8
 
 bind-key S4-1 window-movetogroup-1
 bind-key S4-2 window-movetogroup-2
@@ -62,7 +64,6 @@ bind-key S4-5 window-movetogroup-5
 bind-key S4-6 window-movetogroup-6
 bind-key S4-7 window-movetogroup-7
 bind-key S4-8 window-movetogroup-8
-bind-key S4-9 window-movetogroup-9
 
 bind-key 4-Tab window-cycle
 bind-key S4-Tab window-rcycle
@@ -70,14 +71,14 @@ bind-key S4-Tab window-rcycle
 bind-key 4-c window-hide
 bind-key S4-c window-delete
 
-bind-mouse "1" menu-window-hidden
-bind-mouse 4-1 window-move
-bind-mouse 4-2 window-resize
-bind-mouse 4-3 window-lower
 unbind-mouse M-1
 unbind-mouse M-2
 unbind-mouse M-3
+bind-mouse 4-1 window-move
+bind-mouse 4-3 window-resize
+bind-mouse 4-2 window-lower
 
 bind-key 4-s menu-window
-bind-key 4-r restart
+bind-key S4-r restart
 bind-key S4-q quit
+
