@@ -1,19 +1,19 @@
-gap 15 0 0 0
+# vim: set syntax=sh
+gap         14 0 0 0
 borderwidth 2
-snapdist 5
+snapdist    5
 
 fontname "-*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*"
 #fontname "yuki:size=7:antialias=false:hinting=full"
-color activeborder "#6f6f6f"
+
+color activeborder   "#6f6f6f"
 color inactiveborder "#3f3f3f"
+color menubg         "#151515"
+color menufg         "#d7d0c7"
+color font           "#d7d0c7"
+color selfont        "#151515"
 
-color menubg "#151515"
-color menufg "#d7d0c7"
-color font "#d7d0c7"
-color selfont "#151515"
-
-command term "st -g 80x17"
-
+command term           "st -g 80x17"
 command "          st" "st -g 80x17"
 command "         vim" "st -c vim -T vim -g 94x44 -e nvim"
 command "        tmux" "st -g 85x31 -T tmux -e tmux atach-session"
@@ -24,12 +24,11 @@ command "        offc" libreoffice
 
 # command "        acme" /home/jamppa/.bin/p9p/acme-start.sh
 
-sticky yes
-
+sticky     yes
 unbind-key all
 
 bind-key 4-Return terminal
-bind-key 4-p "/home/jamppa/bin/dmenu_custom"
+bind-key 4-p      "/home/jamppa/bin/dmenu_custom"
 
 bind-key 4-h window-move-left-big
 bind-key 4-j window-move-down-big
@@ -41,10 +40,10 @@ bind-key S4-j window-resize-down-big
 bind-key S4-k window-resize-up-big
 bind-key S4-l window-resize-right-big
 
-bind-key 4-x window-maximize
-bind-key 4-z window-vmaximize
+bind-key 4-x  window-maximize
+bind-key 4-z  window-vmaximize
 bind-key S4-t window-htile
-bind-key 4-t window-vtile
+bind-key 4-t  window-vtile
 
 bind-key 4-f window-group
 bind-key 4-1 group-toggle-1
@@ -65,20 +64,20 @@ bind-key S4-6 window-movetogroup-6
 bind-key S4-7 window-movetogroup-7
 bind-key S4-8 window-movetogroup-8
 
-bind-key 4-Tab window-cycle
+bind-key 4-Tab  window-cycle
 bind-key S4-Tab window-rcycle
 
-bind-key 4-c window-hide
+bind-key 4-c  window-hide
 bind-key S4-c window-delete
 
 unbind-mouse M-1
 unbind-mouse M-2
 unbind-mouse M-3
-bind-mouse 4-1 window-move
-bind-mouse 4-3 window-resize
-bind-mouse 4-2 window-lower
+bind-mouse   4-1 window-move
+bind-mouse   4-2 window-lower
+bind-mouse   4-3 window-resize
 
-bind-key 4-s menu-window
+bind-key 4-s  menu-window
 bind-key S4-r restart
 bind-key S4-q quit
 

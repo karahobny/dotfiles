@@ -1,9 +1,7 @@
 #!/bin/sh
+. "${HOME}/.cache/wal/colors.sh"
+#FONT="lime.se:size=8:antialias=false:hinting=full"
+FONT="scientifica:size=7"
 
-FONT="lime.se:size=8:antialias=false:hinting=full"
-NB='#101010'
-NF='#888888'
-SB='#AAAAAA'
-SF='#151515'
-
-dmenu_run -fn "$FONT" -nb "$NB" -nf "$NF" -sb "$SB" -sf "$SF" $@
+dmenu_run -fn "$FONT" -nb "$color0" -nf "$color15"\
+          -sb "$color1" -sf "$color15" $@
