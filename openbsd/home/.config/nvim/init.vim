@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'vim-syntastic/syntastic'
 	Plug 'raimondi/delimitmate'
 	Plug 'PotatoesMaster/i3-vim-syntax'
+	Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 set encoding=utf-8
@@ -49,7 +50,7 @@ if !&sidescrolloff
 endif
 
 set nostartofline
-set listchars=tab:¯¯,trail:-,extends:>,precedes:<,nbsp:x
+set listchars=tab:◗◗,trail:⋆,extends:>,precedes:<,nbsp:⋆
 set list
 set autochdir
 set isfname-=:
@@ -80,12 +81,17 @@ if &t_Co == 8 && $TERM !~# '^linux'
 	set t_Co=16
 endif
 color term
+"colorscheme wal
 "highlight ExtraWhitespace ctermbg=gray guibg=gray
 "match ExtraWhitespace /\s\+$\|\t/
 highlight Comment ctermfg=darkgray
-highlight CursorLineNr ctermfg=gray
+"highlight CursorLineNr ctermfg=gray
+highlight Cursorline ctermbg=black ctermfg=2
+highlight Statusline ctermbg=black cterm=none ctermfg=2
+highlight StatuslineNC ctermbg=none cterm=none ctermfg=black
+highlight VertSplit cterm=none ctermfg=black
 set diffopt+=iwhite
-set fillchars+=vert:º,stl:Í,stlnc:Í
+set fillchars+=vert:║,stl:,stlnc:
 
 function! NumberToggle()
 	if(&relativenumber == 1)
@@ -96,7 +102,7 @@ function! NumberToggle()
 	endif
 endfunc
 
-command! W w !doas tee % > /dev/null
+command! W w !doas tee %
 command! Tab Tabularize
 command! S source ~/.config/nvim/init.vim
 
@@ -131,6 +137,7 @@ nmap <Leader>P "+P
 nmap <Leader>l :bnext<CR>
 nmap <Leader>h :bprevious<CR>
 
+" global substitution
 nmap <Leader>s :%s//g<Left><Left>
 
 " split navigation
