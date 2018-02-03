@@ -1,14 +1,28 @@
+# vim: set syntax=sh
 UID=`id -u`
+ROOT=''
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+#GIT_PS1_SHOWUPSTREAM="auto"
+#GIT_PS1_DESCRIBE_STYLE="branch"
+
 case $UID in
 	0)
+		ROOT=' # '
 		set -A ps1c ${_yel} ${_red} ${_RED}
 	;;
 	1000)
-		set -A ps1c ${_blu} ${_cya} ${_CYA}
+		set -A ps1c ${_grn} ${_BLK} ${_mag}
 	;;
 	*)
 		set -A ps1c ${_GRN} ${_grn} $_{yel}
 	;;
 esac
-PS1="\[${ps1c[0]}\]_\[${CRST}${ps1c[1]}\]__\[${CRST}${ps1c[2]}\]_\[${CRST}\] "
+
+PS1_GIT="\[${_whi}\]\[\$(__git_ps1 '⭠ %s ∷ ')\]\[${CRST}\]"
+_PS1="\[${ps1c[0]}\]λ \[${CRST}${ps1c[1]}\]∷\[${CRST}\]"
+__PS1="\[${ps1c[2]}\]⇒\[${CRST}\]${ROOT}"
+RPS1="\[${_BLK}\]\[\$(tput sc; rprompt \${PWD#$HOME/}; tput rc)\]\[${CRST}\]"
+PS1="${RPS1}${_PS1} ${PS1_GIT}${__PS1} "
 PS2="\[${ps1c[2]}\]>\[${CRST}\] "

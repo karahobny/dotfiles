@@ -1,4 +1,21 @@
+# vim: set syntax=sh
 cd() {
 	command cd "$@";
 	echo -ne "\033]0;${PWD}\007";
+}
+exitstatus() {
+	[ $? == 0 ] && echo '✓' || echo '✕'
+}
+rprompt() {
+	printf "%*s" $COLUMNS "$1"
+}
+line() {
+	printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+}
+printcolors() {
+	echo -ne "\n"
+	for col in `seq 40 47`; do
+		echo -ne "\033[${col}m    \033[m"
+	done
+	echo -e "\n"
 }
