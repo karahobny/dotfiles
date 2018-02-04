@@ -7,6 +7,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 #GIT_PS1_SHOWUPSTREAM="auto"
 #GIT_PS1_DESCRIBE_STYLE="branch"
 
+# check to see if uid corresponds to root and modify prompt
 case $UID in
 	0)
 		ROOT=' # '
@@ -19,10 +20,16 @@ case $UID in
 		set -A ps1c ${_GRN} ${_grn} $_{yel}
 	;;
 esac
+# is this a secure shell connection, if so modify the prompt
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	SSH_PS1="\[${_whi}\]ε ⇒"
+else
+	SSH_PS1='';
+fi
 
 PS1_GIT="\[${_whi}\]\[\$(__git_ps1 '⭠ %s ∷ ')\]\[${CRST}\]"
 _PS1="\[${ps1c[0]}\]λ \[${CRST}${ps1c[1]}\]∷\[${CRST}\]"
 __PS1="\[${ps1c[2]}\]⇒\[${CRST}\]${ROOT}"
 RPS1="\[${_BLK}\]\[\$(tput sc; rprompt \${PWD#$HOME/}; tput rc)\]\[${CRST}\]"
-PS1="${RPS1}${_PS1} ${PS1_GIT}${__PS1} "
+PS1="${RPS1}${SSH_PS1}${_PS1} ${PS1_GIT}${__PS1} "
 PS2="\[${ps1c[2]}\]>\[${CRST}\] "
