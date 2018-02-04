@@ -1,0 +1,56 @@
+! alpha
+keycode  38 = a A U03B1 U2200 U03B1 U2200
+! beta
+keycode  56 = b B U03B2 U2211 U03B2 U2211
+! gamma
+keycode  42 = g G U03B3 U0393 U03B3 U0393
+! delta
+keycode  40 = d D U03B4 U0394 U03B4 U0394
+! epsilon / euler's number
+keycode  26 = e E  U03B5 U2147 U03B5 U2147
+! lambda
+keycode  46 = l L U03BB U039B U03BB U039B 
+! pi
+keycode  33 = p P U03C0 U220F U03C0 U220F
+! mu / there doesn't exist
+keycode 58 = m M U03BC U2204 U03BC U2204
+! sigma
+keycode 39 = s S U03C3 U03A3 U03C3 U03A3
+! omega
+keycode 32 = o O U03C9 U03A9 U03C9 U03A9
+! zeta, integers
+keycode 52 = z Z U03B6 U2124 U03B6 U2124
+! rho / real numbers
+keycode 27 = r R U03C1 U211D U03C1 U211D
+! imaginary numbers / iota
+keycode 31 = i I U2148 U03B9 U2148 U03B9
+
+! natural n / there exists
+keycode 57 = n N U2115 U2203 U2115 U2203
+! square root, rational n
+keycode 24 = q Q U221A U211A U221A U211A
+! complex n
+keycode 54 = c C U2102 U2102 U2102 U2102
+! imaginary n
+keycode 44 = j J U2149 U2149 U2149 U2149
+
+! dot / ring operators
+keycode 51 = apostrophe asterisk U22C5 U2218 U22C5 U2218
+! lesser / greater than or equal to
+keycode 94 = less greater U2264 U2265 U2664 U2265
+! increment / unary sum operator
+keycode 61 = minus underscore U2206 U2211 U2206 U2211
+
+! member / subset
+keycode 59 = comma semicolon U220B U2283 U220B U2283
+! element / superset
+keycode 60 = period colon U2208 U2282 U2208 U2282
+! union / intersection
+keycode 30 = u U U222A U2229 U222A U2229
+
+! for all
+keycode 41 = f F U2200 U2200 U2200 U2200
+
+! arrows
+keycode 102 = Right U2192 U21E8 U21FE U21E8
+keycode 100 = Left U2190 U21E6 U21FD U21E6
