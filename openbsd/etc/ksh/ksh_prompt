@@ -22,7 +22,7 @@ case $UID in
 esac
 # is this a secure shell connection, if so modify the prompt
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	SSH_PS1="\[${_whi}\]ε ⇒"
+	SSH_PS1="\[${_red}\]ε ⇒ "
 else
 	SSH_PS1='';
 fi
