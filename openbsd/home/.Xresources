@@ -44,6 +44,9 @@ URxvt*boldFont: -*-lime.se-*-*-*-*-10-*-*-*-*-*-*-*,, xft:Go\ Mono:antialias=tru
 
 !! xst/st specific settings
 st.termname:    st-256color
-st.font:        lime.se:size=8:antialias=false:hinting=full
+!st.font:        lime.se:size=8:antialias=false:hinting=full
+st.font:        scientifica:size=7:hinting=full:antialias=false
+st.cwscale:     1.1
+st.chscale:     1.1
 st.bellvolume:  0
 st.borderpx:    10px

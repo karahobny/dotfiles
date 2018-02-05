@@ -36,8 +36,6 @@ keycode 44 = j J U2149 U2149 U2149 U2149
 
 ! dot / ring operators
 keycode 51 = apostrophe asterisk U22C5 U2218 U22C5 U2218
-! lesser / greater than or equal to
-keycode 94 = less greater U2264 U2265 U2664 U2265
 ! increment / unary sum operator
 keycode 61 = minus underscore U2206 U2211 U2206 U2211
 
@@ -52,5 +50,5 @@ keycode 30 = u U U222A U2229 U222A U2229
 keycode 41 = f F U2200 U2200 U2200 U2200
 
 ! arrows
-keycode 102 = Right U2192 U21E8 U21FE U21E8
-keycode 100 = Left U2190 U21E6 U21FD U21E6
+!keycode 102 = Right U2192 U21E8 U21FE U21E8
+!keycode 100 = Left U2190 U21E6 U21FD U21E6
