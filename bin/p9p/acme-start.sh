@@ -16,14 +16,14 @@ export BROWSER TERM MANPAGER \
 PAGER EDITOR PLAN9 PATH MANPATH SHELL
 unset FCEDIT VISUAL
 
-fontserv &
 #export font=/mnt/font/Cousine/8a/font
 tabstop=4
 acmeshell=$PLAN9/bin/rc
 
 export tabstop acmeshell
 
-plumber &
+fontsrv
+plumber
 cat $HOME/lib/plumbing | 9p write plumb/rules
 cat $PLAN9/plumb/basic | 9p write plumb/rules
 
