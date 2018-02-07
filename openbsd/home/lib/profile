@@ -1,20 +1,56 @@
 plan9=/usr/local/plan9
-font='/mnt/font/Go Mono/9a/font'
-#prompt='>> '
-prompt='; ''% '
+
+_prompt='λΔ'
+tab='	'
+
+uid=`{id -u}
+switch($uid) {
+	case 0
+		prompt=($_prompt'# ' $tab)
+	case *
+		prompt=($_prompt'% ' $tab)
+}
+
+MANPAGER=nobs
+PAGER=nobs
+TERM=dumb
 
 fn cd {
 	builtin cd $1 &&
 	awd
 }
 fn ls {
-	builtin ls -F $*
+	builtin lc -F $*
 }
 fn ll {
-	builtin ls -laF $*
+	builtin lc -lsF $*
 }
 fn df {
 	builtin df -h $*
+}
+fn ga {
+	git add $*
+}
+fn gcm {
+	git commit -m ''$*''
+}
+fn gpom {
+	git push origin master
+}
+fn daim {
+	doas make install
+}
+fn .. {
+	cd ..
+}
+fn ... {
+	cd ../..
+}
+fn .... {
+	cd ../../..
+}
+fn pkga {
+	doas pkg_add $*
 }
 
 . $plan9/lib/acme.rc
