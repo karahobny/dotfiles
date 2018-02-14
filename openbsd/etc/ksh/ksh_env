@@ -2,10 +2,17 @@
 LANG="en_US.UTF-8"
 LC_TYPE="en_US.UTF-8"
 LC_ALL=""
-
 export LANG LC_TYPE LC_ALL
 
-EDITOR="nvim"
-VISUAL="nvim"
+PLAN9=/usr/local/plan9
+JDK="/usr/local/jdk-1.8.0/bin"
+PATH=$PATH:$PLAN9/bin:$HOME/bin:$HOME/.bin:$JDK
+export PLAN9 JDK PATH
 
+AUTOCONF_VERSION=2.69
+AUTORECONF_VERSION=2.69
+export AUTOCONF_VERSION AUTORECONF_VERSION
+
+EDITOR="emacs"
+VISUAL="emacs"
 export EDITOR VISUAL

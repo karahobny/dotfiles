@@ -6,11 +6,18 @@ alias ls="colorls -GF"
 alias l="ls"
 alias ll="ls -lhA"
 alias df="df -h"
+alias cp="cp -r"
+alias chown="chown -R"
+alias mkdir="mkdir -p"
+alias md="mkdir -p"
+
 alias c="clear"
 alias reload=". $HOME/.kshrc"
+alias usr1="pkill -USR1"
 
 alias ..="cd .."
-alias ...="cd ..; cd ..;"
+alias ...="cd ../.."
+alias ....="cd ../../.."
 
 # package management
 alias pkga="doas pkg_add"
@@ -28,13 +35,15 @@ alias mlog="colortail -k  /usr/local/share/examples/colortail/conf.messages -f /
 alias slog="colortail -k  /usr/local/share/examples/colortail/conf.secure -f /var/log/secure"
 alias alog="colortail -k  /usr/local/share/examples/colortail/conf.authlog -f /var/log/authlog"
 
-# misc
+# text editors
 alias vi="nvim"
 alias vim="nvim"
+alias e="emacs"
+alias em="emacs"
+
+# misc
 alias xclip="xclip -selection clipboard"
 alias xr="xrdb -merge ~/.Xresources"
-alias usr1="pkill -USR1"
-
 alias dash="dash -l"
 
 # git
@@ -44,3 +53,4 @@ alias grm="git rm"
 alias gcm="git commit -m"
 alias gp="git push"
 alias gpom="git push origin master"
+alias gpod="git push origin devel"
