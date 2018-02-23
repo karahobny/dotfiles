@@ -185,14 +185,18 @@
 ;; misc. user configuration
 
 ;;;; misc. global modes
-'aggressive-indent-excluded-modes 'html-mode
 (global-xah-math-input-mode 1)
+(global-magit-file-mode)
 
 ;;;; misc. keybindings
 (global-set-key (kbd "M-o") 'ace-window)
 (global-set-key [mode-line mouse-4] 'next-buffer)
 (global-set-key [mode-line mouse-5] 'previous-buffer)
 (global-set-key (kbd "M-;") 'comment-dwim-2)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(global-set-key (kbd "<home>") 'beginning-of-line)
+(global-set-key (kbd "<end>") 'end-of-line)
 
 ;; browser
 (setq browse-url-browser-function 'browse-url-generic
@@ -205,7 +209,7 @@
 ;; look
 (global-set-key (kbd "M-n") 'nlinum-mode)
 (setq nlinum-format "%4d ┊ ")
-(setq nlinum-highlight-current-line 1)
+;; (setq nlinum-highlight-current-line 1)
 (show-paren-mode 1)
 (global-visual-line-mode)
 
@@ -244,10 +248,6 @@
 (add-hook 'lisp-mode-hook        #'parinfer-mode)
 (add-hook 'scheme-mode-hook      #'parinfer-mode)
 
-;; home and end key to the beginning and start of the line respectively
-(global-set-key (kbd "<home>") 'beginning-of-line)
-(global-set-key (kbd "<end>") 'end-of-line)
-
 ;; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode)
@@ -258,12 +258,11 @@
 ;; (require 'powerline)
 ;; (powerline-default-theme)
 
-;; scheme-complete
+;; scheme
 (autoload 'scheme-smart-complete "scheme-complete" nil t)
 (eval-after-load 'scheme
   '(define-key scheme-mode-map "\e\t" 'scheme-smart-complete))
 
-;; chicken-scheme
 (require 'chicken-scheme)
 (add-hook 'scheme-mode-hook 'setup-chicken-scheme)
 (define-key scheme-mode-map (kbd "C-?") 'chicken-show-help)
