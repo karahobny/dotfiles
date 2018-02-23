@@ -1,33 +1,28 @@
-#xsetroot -bitmap /home/jamppa/git/bitmap-walls/patterns/fence_knitting.xbm -bg '#eeeeee' -fg '#999999'
-
-#$HOME/.fehbg &
-#urxvtd &
-
-export font=/mnt/font/yuki/7/font
-export PLAN9=/usr/local/plan9
-export PATH=$PATH:$HOME/.bin/p9p:$HOME/bin/wmutils
-
 xrdb -merge $HOME/.Xresources &
 xset -b &
 xset +fp /home/jamppa/.fonts
-xset +fp /usr/local/share/fonts/artwiz-aleczapka/
+xset +fp /usr/local/share/fonts
 xset fp rehash &
 
-setxkbmap -option caps:escape &
+setxkbmap -option ctrl:nocaps &
 xmodmap -e 'keysym Menu = Super_L' &
-xmodmap ~/.math.xmodmap
+xmodmap $HOME/.math.xmodmap &
 
 xsetroot -cursor_name left_ptr &
-#hsetroot -fill $HOME/.wall.jpeg -gamma 0.6 &
-wal -R
+#wal -R
+$HOME/.fehbg &
 
 cwm_panel &
+emacs --daemon &
+emacs-client &
 exec cwm
 
-# wmutils stuff
+#exec i3
+#exec bspwm
+
+## wmutils stuff
 #$HOME/bin/wmutils/lpanel &
 #sxhkd &
-#$HOME/bin/wmutils/pulsar &
 #while true; do
 #	wew | $HOME/bin/wmutils/yawee;
 #done
