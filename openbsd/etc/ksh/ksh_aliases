@@ -38,8 +38,8 @@ alias alog="colortail -k  /usr/local/share/examples/colortail/conf.authlog -f /v
 # text editors
 alias vi="nvim"
 alias vim="nvim"
-alias e="emacs"
-alias em="emacs"
+alias e="emacsc"
+alias em="emacsc"
 
 # misc
 alias xclip="xclip -selection clipboard"
