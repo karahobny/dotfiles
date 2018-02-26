@@ -131,3 +131,5 @@
           #'add-fira-code-symbol-keywords)
 (add-hook 'clojure-mode-hook
           #'add-fira-code-symbol-keywords)
+
+(provide 'fira-code-ligatures)
