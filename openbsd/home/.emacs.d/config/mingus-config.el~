@@ -1,0 +1,5 @@
+;; mingus
+(require 'mingus)
+(require 'mingus-stays-home)
+
+(provide 'mingus-config)

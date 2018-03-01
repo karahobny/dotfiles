@@ -1,0 +1,11 @@
+;;; visual-config -- configuration for all things flashy
+;;; Commentary: linenumbering, wordwrapping, prettified-symbols apart from font-specific ligatures
+(global-visual-line-mode)
+(show-paren-mode 1)
+
+;; line numbers through nlinum
+(setq nlinum-format "%4d ┊ ")
+
+;; => prettified symbols [TODO: add more]
+(setq prettify-symbols-alist
+      '(("lambda" . 955)))
